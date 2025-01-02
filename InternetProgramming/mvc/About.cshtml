@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Giriş sayfası";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+
+<div class="login-container">
+    <div class="login-box">
+
+        @if (!string.IsNullOrEmpty(ViewBag.Message))
+        {
+            <div class="error-message">
+                @ViewBag.Message
+            </div>
+         }
+
+        <form method="post" action="/Home/Login">
+            <div class="form-group">
+                <label for="username">Kullanıcı adı</label>
+                <input type="text" id="username" name="username" class="form-control" placeholder="Kullanıcı adı giriniz" required />
+            </div>
+            <div class="form-group">
+                <label for="password">Parola</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Parola giriniz" required />
+            </div>
+            <button type="submit" class="btn-login">Giriş</button><br /><br />
+            <p class="signup-link">Hesabınız yok mu? <a href="/Account/Register">Kayıt ol</a></p>
+        </form>
+    </div>
+</div>
